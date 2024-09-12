@@ -1,0 +1,43 @@
+//بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+//وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define D 64
+#define FAST   ios_base::sync_with_stdio(false);cin.tie(NULL);
+int N  ,  First;
+ll sum , Target;// (a+b)(b-a+1)/2
+ 
+void KATOUT() {
+ 
+int n;
+    cin>>n;
+    map<int,int>mp;
+    for(int i=0;i<n;i++) {
+        int a;
+        cin>>a;
+        mp[a]++;
+    }
+    int mx=0;
+for(int sum=2;sum<=2*n;sum++) {
+int counter=0;
+    for(auto it:mp) {
+        if(mp.find(sum-it.first)!=mp.end()) {
+            counter+=min(it.second,mp[sum-it.first]);
+        }
+    }
+mx=max(counter/2,mx);
+ 
+}
+cout<<mx<<"\n";
+ 
+ 
+ 
+}
+int32_t main(){
+    FAST
+  int T=1;
+    cin>>T;
+    while(T--)
+        KATOUT();
+}
