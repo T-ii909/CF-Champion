@@ -1,0 +1,46 @@
+//بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+//وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define D 64
+#define FAST   ios_base::sync_with_stdio(false);cin.tie(NULL);
+int  N  ,  First;
+ll sum , Target;// (a+b)(b-a+1)/2
+
+void KATOUT() {
+
+int l,r,L,R;
+    cin>>l>>r>>L>>R;
+    if(L==r || l==R) {
+        cout<<2<<"\n";
+    }
+    else if(l==L && R==r) {
+    cout<<r-l<<"\n";
+    }
+    else if(r<L || R<l) {
+        cout<<1<<"\n";
+    }
+    else{
+int cnt=0;
+        cnt+=(l-L)!=0;
+        cnt+=(r-R)!=0;
+        if((R<r && L>l) || (r<R && l>L))
+        cnt+=min(R-L,r-l);
+        else{
+            cnt+=min(abs(R-l),abs(r-L));
+        }
+        cout<<cnt<<"\n";
+    }
+
+
+
+}
+int32_t main(){
+    FAST
+  int T=1;
+    cin>>T;
+    while(T--)
+        KATOUT();
+}
+
