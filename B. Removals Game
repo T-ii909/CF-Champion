@@ -1,0 +1,63 @@
+//بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+//وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define D 64
+#define FAST   ios_base::sync_with_stdio(false);cin.tie(NULL);
+int  N  ,  First;
+ll sum , Target;// (a+b)(b-a+1)/2
+ 
+void KATOUT() {
+ 
+int n;
+    cin>>n;
+int arr[n],arr2[n];
+    int cnt[n];
+    for(int i=0;i<n;i++) {
+        cin>>arr[i];
+        cnt[arr[i]]++;
+    }
+    for(int i=0;i<n;i++) {
+        cin>>arr2[i];
+        if(cnt[arr2[i]]==0) {
+            cout<<"Alice\n";
+            return;
+        }
+    }
+    int i=0,j=n-1;
+    int ii=0,jj=n-1;
+while(i<=jj && ii<=j && i<n && ii<n && j>=0 && jj>=0){
+if((arr[i]!=arr2[ii] && arr[i]!=arr2[jj]) || (arr[j]!=arr2[ii] && arr[j]!=arr2[jj])) {
+    cout<<"Alice\n";
+    return;
+}
+if(arr[i]==arr2[ii]) {
+    i++;
+    ii++;
+}
+else if(arr[i]==arr2[jj]) {
+    i++;
+    jj--;
+}
+else if(arr[j]==arr2[ii]) {
+    j--;
+    ii++;
+}
+else if(arr[j]==arr2[jj]) {
+    j--;
+    jj--;
+}
+}
+cout<<"Bob\n";
+ 
+ 
+}
+int32_t main(){
+    FAST
+  int T=1;
+    cin>>T;
+    while(T--)
+        KATOUT();
+}
+ 
