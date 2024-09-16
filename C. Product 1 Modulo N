@@ -1,0 +1,53 @@
+//بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+//وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define D 64
+#define FAST   ios_base::sync_with_stdio(false);cin.tie(NULL);
+int  N  ,  First;
+ll sum , Target;// (a+b)(b-a+1)/2
+int gcd(int a,int b){//the greater number that can divide the both numbers
+    if(b==0)return a;
+    return gcd(b,a%b);
+}
+int lcm(int a,int b) {// the least value that the both number can divide
+    return (a/gcd(a,b))*b;
+}
+void KATOUT(){
+int n;
+    cin>>n;
+    vector<int>vec;
+    ll num=1;
+    vec.push_back(1);
+    for(int i=2;i<n;i++) {
+if(gcd(i,n)==1) {
+    vec.push_back(i);
+    num*=i;
+    num%=n;
+}
+}
+if(num%n==1) {
+cout<<vec.size()<<"\n";
+    for(int i=0;i<vec.size();i++) {
+        cout<<vec[i]<<" ";
+    }
+}
+else{
+cout<<vec.size()-1<<"\n";
+    for(int i=0;i<vec.size()-1;i++) {
+        cout<<vec[i]<<" ";
+    }
+ 
+}
+ 
+ 
+ 
+}
+int32_t main(){
+    FAST
+  int T=1;
+   // cin>>T;
+    while(T--)
+        KATOUT();
+}
