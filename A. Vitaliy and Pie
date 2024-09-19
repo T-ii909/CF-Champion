@@ -1,0 +1,51 @@
+//بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+//وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define D 64
+#define FAST   ios_base::sync_with_stdio(false);cin.tie(NULL);
+int  N  ,  First;
+ll  Sum1=0 , Sum2=0;// (a+b)(b-a+1)/2
+int vis[20];
+vector<int>vec;
+int gcd(int a,int b){//the greater number that can divide the both numbers
+    if(b==0)return a;
+    return gcd(b,a%b);
+}
+int lcm(int a,int b) {
+    // the least value that the both number can divide
+    return (a/gcd(a,b))*b;
+}
+ 
+void KATOUT(){
+ 
+int n;cin>>n;
+    string s;cin>>s;
+    map<char,int>mp;
+    int cnt=0;
+    for(int i=0;i<s.size();i++){
+       if(islower(s[i])) {
+           mp[s[i]]++;
+       }
+        else {
+            if(mp.find(tolower(s[i]))!=mp.end() && mp[tolower(s[i])]!=0) {
+                mp[tolower(s[i])]--;
+            }
+            else{
+                cnt++;
+            }
+        }
+    }
+cout<<cnt;
+ 
+    
+ 
+}
+int32_t main(){
+    FAST
+  int T=1;
+    //cin>>T;
+    while(T--)
+        KATOUT();
+}
