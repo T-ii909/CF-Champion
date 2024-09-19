@@ -1,0 +1,65 @@
+//بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+//وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define D 64
+#define FAST   ios_base::sync_with_stdio(false);cin.tie(NULL);
+int  N  ,  First;
+ll  Sum1=0 , Sum2=0;// (a+b)(b-a+1)/2
+int gcd(int a,int b){//the greater number that can divide the both numbers
+    if(b==0)return a;
+    return gcd(b,a%b);
+}
+int lcm(int a,int b) {
+    // the least value that the both number can divide
+    return (a/gcd(a,b))*b;
+}
+int fun(int n) {
+if(n==0)return n;
+return fun(n-1)+n;
+ 
+}
+void KATOUT(){
+ 
+int n;cin>>n;
+    map<string,int>mp;
+    vector<pair<string,int>>vec;
+    for(int i=0;i<n;i++) {
+string s;int a;cin>>s>>a;
+        if(mp.find(s)!=mp.end()) {
+            vec.push_back(make_pair(s,a+mp[s]));
+ 
+        }
+        else {
+            vec.push_back(make_pair(s,a));
+ 
+        }
+        mp[s]+=a;
+    }
+int mx=INT_MIN;
+    for(auto it:mp) {
+        mx=max(mx,it.second);
+    }
+map<string,int>vm;
+    for(int i=0;i<n;i++) {
+        vm[vec[i].first]=vec[i].second;
+    }
+for(int i=0;i<n;i++) {
+    if(vec[i].second>=mx && vm[vec[i].first]==mx) {
+        cout<<vec[i].first;
+        return;
+    }
+}
+ 
+ 
+ 
+}
+int32_t main(){
+    FAST
+  int T=1;
+    //cin>>T;
+    while(T--)
+        KATOUT();
+}
+ 
